@@ -8,6 +8,13 @@
   "weight": "1.8kg",
   "weightDate": "2026-06-08",
   "feeding": "하루 3회 · 1회 26g (총 78g/일)",
+  "dailyKcal": "326 kcal",
+  "mealBreakdown": "1회 26g = 프로플랜 5g + 몬지 연어 21g",
+  "feedingSchedule": [
+    { "meal": "아침", "time": "07:00", "amount": "26g" },
+    { "meal": "점심", "time": "13:00", "amount": "26g" },
+    { "meal": "저녁", "time": "19:00~20:00", "amount": "26g" }
+  ],
   "food": "프로플랜 스몰앤토이 퍼피 20% + 몬지 모노프로틴(L.I.D) 퍼피&주니어 연어 80%",
   "nextEvent": { "label": "5차 접종", "date": "2026-06-12" },
   "cautions": [
