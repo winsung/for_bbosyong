@@ -42,6 +42,8 @@
 3. 훈련은 "이번 달 추천 → 사용자 수행 → 회고 기록 → 다음 추천 반영" 사이클.
    월령 단계가 바뀌면 `training/roadmap.md`와 함께 `docs/training.json`(가족 페이지)도 갱신.
 4. 건강 우려는 일반 정보 제공하되, 이상 징후 시 수의사 상담 권유.
+5. **작업을 마무리할 땐 `/wrap-up` 스킬**(`.claude/skills/wrap-up/`)로 이번 세션 변경을
+   메모리·CLAUDE.md·`docs/data.json`·기록 파일에 동기화하고 `main`에 commit & push.
 
 ## Git 규칙
 - 원격: `git@github.com:winsung/for_bbosyong.git` (SSH 인증 사용).
