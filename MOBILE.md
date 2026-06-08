@@ -17,16 +17,20 @@
 ## 2. 기록하고 문의하기 (입력) — 관리자(아빠)용
 폰에서 **자연어로 말하면** 기록 파일에 반영됩니다. PC·터미널 필요 없습니다.
 
-> ⚠️ 중요: 그냥 Claude 앱의 **일반 채팅**에 연결하는 GitHub는 **읽기 전용**이라 기록 저장이 안 됩니다.
-> 반드시 아래의 **"Code" 화면**(또는 폰 브라우저 `claude.ai/code`)을 사용하세요.
+> ⚠️ 중요 1: 그냥 Claude 앱 **일반 채팅(Chat)**에 붙이는 GitHub는 **읽기 전용**이라 기록 저장이 안 됩니다.
+> ⚠️ 중요 2: **데스크톱(PC) 앱의 Code 탭은 "로컬" 전용**이라 GitHub 연결 버튼이 없습니다. (정상)
+> → GitHub 연결과 클라우드 환경은 **브라우저 `claude.ai/code`** 에서 1회 설정합니다.
 
-### 준비물 (최초 1회)
-- Claude **Pro / Max** 구독 (Code 기능에 필요)
-- Claude 앱 설치 (iOS 앱스토어 / Android 플레이스토어) — 또는 폰 브라우저로 `claude.ai/code`
-- 앱의 **Code 탭 → GitHub 연결** → `winsung/for_bbosyong` 저장소 권한 허용 (OAuth, 한 번만)
+### 준비물 (최초 1회 — PC든 폰이든 브라우저에서)
+- Claude **Pro / Max** 구독
+- 브라우저에서 **`claude.ai/code`** 접속 → 로그인
+- **"Install the Claude GitHub App"** → Authorize → `winsung/for_bbosyong` 허용(또는 All)
+- **클라우드 환경 생성**: 이름 `for_bbosyong`, 나머지는 기본값 → Create
+- ✅ 클라우드에 만들어지므로 이후 **PC 꺼져 있어도** 폰만으로 동작
 
-### 매일 기록하는 법
-1. Claude 앱 **Code 탭** 열기 → 저장소 `winsung/for_bbosyong` 선택
+### 매일 기록하는 법 (폰)
+1. 폰에서 **`claude.ai/code`(브라우저)** 또는 **Claude 모바일 앱** 열기 → `winsung/for_bbosyong` 세션 선택
+   (같은 계정이면 위에서 만든 클라우드 환경이 그대로 보임)
 2. 그냥 평소 말로 입력. 예시:
    - "오늘 이름 인지 훈련 5회 했고 3번 쳐다봤어. `training/log.md`에 회고로 남겨줘"
    - "오늘 산책 잘했고 변 상태 좋았어 → 6월 일지에 기록해줘"
