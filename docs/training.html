@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#7fb3d5" />
+<title>뽀숑이 훈련 🎓</title>
+<style>
+  :root {
+    --bg: #f4f7fb; --card: #fff; --ink: #2c3a47; --muted: #7a8a99;
+    --sky: #7fb3d5; --sky-soft: #e8f1f9; --peach-soft: #fff0eb;
+    --line: #eef2f6; --shadow: 0 6px 24px rgba(60,90,120,.08);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                 "Malgun Gothic", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 16px 16px 48px; }
+  .back { display: inline-flex; align-items: center; gap: 6px; margin: 6px 0 14px;
+          color: var(--sky); text-decoration: none; font-weight: 700; font-size: 14px; }
+
+  .head {
+    background: linear-gradient(160deg, #aed5ee 0%, #cfe6f6 60%, #ffe5dc 100%);
+    border-radius: 22px; padding: 22px 20px; box-shadow: var(--shadow);
+  }
+  .head .badge { display:inline-block; background: rgba(255,255,255,.75); color:#3d6680;
+    border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 800; }
+  .head h1 { margin: 10px 0 6px; font-size: 23px; letter-spacing: -.4px; }
+  .head p { margin: 0; font-size: 14px; color: #4a6275; }
+
+  .item {
+    background: var(--card); border-radius: 18px; padding: 18px;
+    box-shadow: var(--shadow); margin-top: 14px;
+  }
+  .item h2 { margin: 0; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+  .item h2 .n {
+    flex: none; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--sky); color: #fff; font-size: 13px; font-weight: 800;
+    display: grid; place-items: center;
+  }
+  .goal { margin: 8px 0 12px; font-size: 13.5px; color: #3d6680; font-weight: 700;
+          background: var(--sky-soft); border-radius: 10px; padding: 7px 11px; }
+  .goal::before { content: "🎯 "; }
+  ol.steps { margin: 0; padding-left: 20px; }
+  ol.steps li { margin: 5px 0; font-size: 14.5px; }
+  .tip { margin-top: 12px; font-size: 13px; color: #8a5a3a;
+         background: var(--peach-soft); border-radius: 10px; padding: 9px 11px; }
+  .tip::before { content: "💡 "; font-weight: 700; }
+
+  .footer { text-align:center; margin-top: 22px; color: var(--muted); font-size: 12px; }
+  .err { text-align:center; color: var(--muted); padding: 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./index.html">← 뽀숑이 홈</a>
+  <div class="head" id="head"></div>
+  <div id="list"></div>
+  <div class="footer" id="footer"></div>
+</div>
+
+<script>
+  const fmtDate = (s) => { const [y,m,d]=s.split("-").map(Number); return `${y}.${m}.${d}`; };
+
+  function render(d) {
+    document.getElementById("head").innerHTML = `
+      <span class="badge">🎓 이번 훈련 단계</span>
+      <h1>${d.stage}</h1>
+      <p>${d.intro || ""}</p>`;
+
+    document.getElementById("list").innerHTML = (d.items || []).map((it, i) => `
+      <div class="item">
+        <h2><span class="n">${i+1}</span>${it.title}</h2>
+        ${it.goal ? `<div class="goal">${it.goal}</div>` : ""}
+        <ol class="steps">${(it.steps||[]).map(s => `<li>${s}</li>`).join("")}</ol>
+        ${it.tip ? `<div class="tip">${it.tip}</div>` : ""}
+      </div>`).join("");
+
+    document.getElementById("footer").innerHTML =
+      `마지막 업데이트 ${fmtDate(d.updated)} · 추천 → 수행 → 회고 🐾`;
+  }
+
+  fetch("./training.json?v=" + Date.now())
+    .then(r => r.json())
+    .then(render)
+    .catch(() => {
+      document.getElementById("list").innerHTML =
+        `<div class="err">훈련 정보를 불러오지 못했어요. 잠시 후 다시 열어주세요.</div>`;
+    });
+</script>
+</body>
+</html>

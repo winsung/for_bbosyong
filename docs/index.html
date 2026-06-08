@@ -90,6 +90,13 @@
           border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight:700;
           margin: 2px 4px 2px 0; }
 
+  a.link-card { display: block; text-decoration: none; color: inherit; transition: transform .12s ease; }
+  a.link-card:active { transform: scale(.99); }
+  a.link-card .more {
+    display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 800;
+    color: var(--sky); background: var(--sky-soft); border-radius: 999px; padding: 5px 12px;
+  }
+
   .caution {
     background: var(--peach-soft);
     border: 1px solid #ffd9cf;
@@ -187,10 +194,11 @@
 
     if (d.trainingStage) {
       cards.push(`
-        <div class="card">
+        <a class="card link-card" href="./training.html">
           <div class="label">🎓 이번 훈련 단계</div>
           <p>${d.trainingStage}</p>
-        </div>`);
+          <span class="more">훈련 목록 · 수행 방법 보기 →</span>
+        </a>`);
     }
 
     document.getElementById("cards").innerHTML = cards.join("");

@@ -27,13 +27,17 @@
 - `medical/schedule.md` — 접종·구충·심장사상충 일정
 - `training/roadmap.md` — 개월별 훈련 추천 로드맵
 - `training/log.md` — 훈련 추천→수행→회고 기록
-- `docs/` — 가족용 안내 페이지(GitHub Pages). `docs/data.json`이 페이지에 표시되는 데이터.
+- `docs/` — 가족용 안내 페이지(GitHub Pages).
+  - `docs/data.json` — 메인 페이지(index.html)에 표시되는 현재 상태 데이터
+  - `docs/training.json` — 훈련 상세 페이지(training.html)의 이번 단계 훈련 목록·수행 방법
+  - `docs/pposhong.jpg` — 페이지 아바타 사진
 
 ## LLM 운영 규칙
 1. 사용자가 일상 메모를 주면 해당 월 `journal` 파일에 날짜별로 추가.
 2. 몸무게/접종/사료/중요 상태가 바뀌면 **CLAUDE.md · 메모리 · `docs/data.json` 세 곳을 함께 갱신**
    (가족용 페이지가 항상 최신이 되도록). 변경 시 `updated` 날짜도 갱신.
 3. 훈련은 "이번 달 추천 → 사용자 수행 → 회고 기록 → 다음 추천 반영" 사이클.
+   월령 단계가 바뀌면 `training/roadmap.md`와 함께 `docs/training.json`(가족 페이지)도 갱신.
 4. 건강 우려는 일반 정보 제공하되, 이상 징후 시 수의사 상담 권유.
 
 ## Git 규칙
